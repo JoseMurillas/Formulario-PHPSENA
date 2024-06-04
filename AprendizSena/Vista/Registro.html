@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="Registro.css">
+        <script type="text/javascript">
+            function campos(rol){
+                if(rol == 1){
+                    document.getElementById("curso").style.display = 'block';
+                    document.getElementById("cargo").style.display = 'none';
+                    document.getElementById("area").style.display = 'none';
+    
+                }else if(rol == 2){
+                    document.getElementById("curso").style.display = 'none';
+                    document.getElementById("cargo").style.display = 'block';
+                    document.getElementById("area").style.display = 'none';
+                }else if(rol == 3){
+                    document.getElementById("curso").style.display = 'none';
+                    document.getElementById("cargo").style.display = 'none';
+                    document.getElementById("area").style.display = 'block';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="formato">
+            <form action="../Controlador/Logica.php" method="post">
+                <h1>REGISTRO</h1>
+                <input type="text" name="nombre" class="campo" placeholder="Ingresa Nombre">
+                <br>
+                <input type="date" name="nacimiento" class="campo" placeholder="Ingresa Fecha de Nacimiento">
+                <br>
+                <input type="number" name="identificacion" class="campo" placeholder="Ingresa Identificacion">
+                <br>
+                <input type="number" name="telefono" class="campo" placeholder="Ingrese Telefono">
+                <br>
+                <input type="text" name="correo" class="campo" placeholder="Ingresa Correo">
+                <br>
+                <select name="rol" onchange="campos(this.value)">
+                    <option value="">Selecciones su rol</option>
+                    <option value="1">Aprendiz</option>
+                    <option value="2">Funcionario</option>
+                    <option value="3">Instructor</option>
+                </select> <br>
+                <div id="curso" style="display: none;">
+                    <input type="text" name="curso" class="campo" placeholder="Ingrese su Curso">
+                </div>
+                <div id="cargo" style="display: none;">
+                    <input type="text" name="cargo" class="campo" placeholder="Ingrese su Cargo">
+                </div>
+                <div id="area" style="display: none;">
+                    <input type="text" name="area" class="campo" placeholder="Ingrese su Area">
+                </div>
+            <br>
+                <input type="submit" class="button" value="Enviar">
+            </form>
+        </div>
+    </body>
+</html>
