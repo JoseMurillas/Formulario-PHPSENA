@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="Registro.css">
+        <script type="text/javascript">
+            function campos(rol){
+                if(rol == 1){
+                    document.getElementById("curso").style.display = 'block';
+                    document.getElementById("cargo").style.display = 'none';
+                    document.getElementById("area").style.display = 'none';
+    
+                }else if(rol == 2){
+                    document.getElementById("curso").style.display = 'none';
+                    document.getElementById("cargo").style.display = 'block';
+                    document.getElementById("area").style.display = 'none';
+                }else if(rol == 3){
+                    document.getElementById("curso").style.display = 'none';
+                    document.getElementById("cargo").style.display = 'none';
+                    document.getElementById("area").style.display = 'block';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">REGISTRO</h1>
+            <form action="../Controlador/Logica.php" method="post"  class="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="nombre" placeholder="Ingresa Nombre"><br>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="forml-label">Ingrese fecha de nacimiento</label>
+                        <input type="date" class="form-control" name="nacimiento" class="campo"><br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" class="form-control" name="identificacion" class="campo" placeholder="Ingresa Identificacion"><br>
+                    </div>
+                    <div class="col-md-6"> 
+                        <input type="number" class="form-control" name="telefono" class="campo" placeholder="Ingrese Telefono"><br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control"  name="correo" class="campo" placeholder="Ingresa Correo"><br>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="rol" onchange="campos(this.value)" class="form-select" >
+                            <option value="">Selecciones su rol</option>
+                            <option value="1">Aprendiz</option>
+                            <option value="2">Funcionario</option>
+                            <option value="3">Instructor</option>
+                        </select> <br>
+                    </div>
+                    <div id="curso" style="display: none;" class="col-md-6">
+                        <input type="text" name="curso" class="form-control" placeholder="Ingrese su Curso">
+                    </div>
+                    <div id="cargo" style="display: none;" class="col-md-6">
+                        <input type="text" name="cargo" class="form-control" placeholder="Ingrese su Cargo">
+                    </div>
+                    <div id="area" style="display: none;" class="col-md-6">
+                        <input type="text" name="area" class="form-control" placeholder="Ingrese su Area"><br>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Enviar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        
+    </script>
+</html>
